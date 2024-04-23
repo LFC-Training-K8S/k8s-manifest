@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pod-httpd-2
+  name: pod-httpd-1
+spec:
+  containers:
+  - image: httpd
+    name: pod-httpd-2
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

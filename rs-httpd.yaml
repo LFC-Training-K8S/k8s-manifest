@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: pod-httpd
+  labels:
+    app: httpd
+    tier: webserver
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      run: pod-httpd-2
+  template:
+    metadata:
+      labels:
+        run: pod-httpd-2
+    spec:
+      containers:
+      - image: httpd
+        name: pod-httpd
