@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   labels:
     run: pod-httpd-2
+    pod-template-hash: 57f574c688
   name: pod-httpd-1
 spec:
   containers:

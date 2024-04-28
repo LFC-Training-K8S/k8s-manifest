@@ -5,7 +5,11 @@ metadata:
     app: deploy-httpd
   name: deploy-httpd
 spec:
-  replicas: 3
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 50%
+      maxSurge: 25%
   selector:
     matchLabels:
       run: pod-httpd-2
@@ -16,6 +20,6 @@ spec:
       name: pod-httpd
     spec:
       containers:
-      - image: httpd
+      - image: httpd:alpine
         name: pod-httpd
         
